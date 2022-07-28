@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"fmt"
 	"net/http"
+	"time"
 
 	"github.com/spf13/viper"
 )
@@ -23,7 +24,7 @@ func SendWebHook(title, url, value, image string) {
 		fmt.Println(err)
 	}
 	if resp.StatusCode >= http.StatusOK {
-		fmt.Println("Send Webhook Sucess")
+		fmt.Println(time.Now().Format("[2006-01-02 15:04:05]"), "Send Webhook Sucess")
 		return
 	}
 }
